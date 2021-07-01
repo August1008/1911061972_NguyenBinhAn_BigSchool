@@ -11,6 +11,8 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Models
     {
         public int Id { set; get; }
         public ApplicationUser Lecturer { get; set; }
+
+        public string LecturerId { set; get; }
         [Required]
         [StringLength(255)]
         public string place { get; set; }

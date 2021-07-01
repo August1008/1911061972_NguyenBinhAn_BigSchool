@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using _1911061972_NguyenBinhAn_BigSchool.Models;
+using Microsoft.AspNet.Identity;
 
 namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
 {
@@ -48,13 +49,22 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,place,datetime,CategoryId")] Course course)
+        public ActionResult Create(CourseViewModel course)
         {
             if (ModelState.IsValid)
             {
-                db.courses.Add(course);
+                var Newcourse = new Course
+                {
+
+                    LecturerId = User.Identity.GetUserId(),
+                    datetime = course.GetDateTime(),
+                    CategoryId = course.CategoryId,
+                    place = course.place
+                };
+                db.courses.Add(Newcourse);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
             ViewBag.CategoryId = new SelectList(db.categories, "Id", "name", course.CategoryId);
