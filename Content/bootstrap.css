@@ -6832,3 +6832,7 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.navbar-inverse .navbar-nav > li > a {
+    color: blueviolet;
+}

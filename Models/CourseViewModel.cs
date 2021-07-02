@@ -13,6 +13,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Models
         [FutureDate(ErrorMessage = "Ngày nhập phải lớn hơn ngày hiện tại")]
         public string date { set; get; }
         [Required]
+        [ValidTime(ErrorMessage ="Nhập giờ theo định dạng HH:mm")]
         public string time { set; get; }
         [Required]
         public  int CategoryId { set; get; }
