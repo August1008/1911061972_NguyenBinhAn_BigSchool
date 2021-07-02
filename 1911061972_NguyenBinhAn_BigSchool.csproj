@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202106300650365_CourseTable.Designer.cs">
       <DependentUpon>202106300650365_CourseTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107021356443_AddNameColumnToAspNetUsers.cs" />
+    <Compile Include="Migrations\202107021356443_AddNameColumnToAspNetUsers.Designer.cs">
+      <DependentUpon>202107021356443_AddNameColumnToAspNetUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -284,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106300650365_CourseTable.resx">
       <DependentUpon>202106300650365_CourseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107021356443_AddNameColumnToAspNetUsers.resx">
+      <DependentUpon>202107021356443_AddNameColumnToAspNetUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
