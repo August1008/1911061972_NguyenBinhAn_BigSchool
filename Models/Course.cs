@@ -19,7 +19,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Models
         public DateTime datetime { set; get; }
         public Category Category { set; get; }
         [ForeignKey("Category")]
-        public int CategoryId { set; get; }
+        public int CategoryId { set; get; } // hehe
 
     }
 }
