@@ -32,7 +32,7 @@ textarea {
 
 .navbar-inverse {
     background-color: whitesmoke;
-    border:none;
+    border: none;
 }
 
 .navbar-brand {
@@ -43,33 +43,8 @@ textarea {
     line-height: 20px;
     border-right: 2px solid sandybrown;
 }
+
 .navbar-inverse .navbar-brand {
     color: black;
     font-family: cursive;
-}
-
-.course{
-    list-style:none;
-}
-
-.course > li {
-    position: relative;
-    margin-bottom:50px;
-    margin-top:50px;
-    display:inline-block;
-    width:24%;
-    
-}
-.course > li .date{
-    text-align:center;
-    background-color:saddlebrown;
-    color:black;
-    width:60px;
-    border-radius:8px;
-}
-.course > li .details{
-    position: absolute;
-    top: 0;
-    left:70px;
-
 }

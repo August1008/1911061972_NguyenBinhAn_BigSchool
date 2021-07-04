@@ -26,6 +26,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Models
     {
         public DbSet<Course> courses { set; get; }
         public DbSet<Category> categories { set; get; }
+        public DbSet<Attendance> attendances { set; get; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -35,6 +36,12 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Attendance>().HasRequired(a => a.Course).WithMany().WillCascadeOnDelete(false);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
