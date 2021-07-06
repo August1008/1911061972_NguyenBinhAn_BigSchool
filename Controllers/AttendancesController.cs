@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using _1911061972_NguyenBinhAn_BigSchool.DTOs;
 
 namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
 {
@@ -20,9 +21,9 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Attend([FromBody]int courseId)
+        public IHttpActionResult Attend(AttendanceDto attendanceDto)
         {
-            var attendance = new Attendance { CourseId = courseId, AttenderId = User.Identity.GetUserId() };
+            var attendance = new Attendance { CourseId = attendanceDto.CourseId, AttenderId = User.Identity.GetUserId() };
             _dbContext.attendances.Add(attendance);
             _dbContext.SaveChanges();
             return Ok();

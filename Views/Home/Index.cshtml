@@ -3,7 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 <head>
-    <link rel="stylesheet" href="~/Content/Site.css"/>
+    
 </head>
 
 <body>
@@ -20,11 +20,15 @@
                 <div class="details">
                     <div class="lecturer">@course.Lecturer.name</div>
                     <div class="category">@course.Category.name</div>
+                    <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
                 </div>
 
             </li>
         }
     </ul>
-
+    
+    @section scripts{
+        <script src="~/MyScripts/Attendance.js"></script>
+        }
 </body>  
     
