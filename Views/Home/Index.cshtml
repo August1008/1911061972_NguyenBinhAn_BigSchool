@@ -18,7 +18,10 @@
                 </div>
 
                 <div class="details">
-                    <div class="lecturer">@course.Lecturer.name</div>
+                    <div class="lecturer">
+                        @course.Lecturer.name
+                        <button class="btn btn-default btn-sm js-toggle-following" data-user-id="@course.LecturerId">Follow</button>
+                    </div>
                     <div class="category">@course.Category.name</div>
                     <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
                 </div>
@@ -28,7 +31,7 @@
     </ul>
     
     @section scripts{
-        <script src="~/MyScripts/Attendance.js"></script>
+        <script src="~/MyScripts/MyJs.js"></script>
         }
 </body>  
     

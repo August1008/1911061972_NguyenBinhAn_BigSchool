@@ -21,6 +21,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IHttpActionResult Attend(AttendanceDto attendanceDto)
         {
             var attendance = new Attendance { CourseId = attendanceDto.CourseId, AttenderId = User.Identity.GetUserId() };

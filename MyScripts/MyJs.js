@@ -10,5 +10,16 @@
         .fail(function () {
             alert("Something failed!!");
         });
-});
+    });
+
+    $(".js-toggle-following").click(function (e) {
+        var button = $(e.target);
+        $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+            .done(function () {
+                button.text("Following");
+            })
+            .fail(function () {
+                alert("Something failed!");
+            })
+    });
 });

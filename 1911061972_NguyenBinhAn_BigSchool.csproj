@@ -181,6 +181,13 @@
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\FollowingsController.cs" />
+    <Compile Include="DTOs\FollowingDto.cs" />
+    <Compile Include="Migrations\202107070618523_AddFollowingTable.cs" />
+    <Compile Include="Migrations\202107070618523_AddFollowingTable.Designer.cs">
+      <DependentUpon>202107070618523_AddFollowingTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Following.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DTOs\AttendanceDto.cs" />
@@ -226,7 +233,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="MyScripts\Attendance.js" />
+    <Content Include="MyScripts\MyJs.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -284,6 +291,11 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Followings\Create.cshtml" />
+    <Content Include="Views\Followings\Delete.cshtml" />
+    <Content Include="Views\Followings\Details.cshtml" />
+    <Content Include="Views\Followings\Edit.cshtml" />
+    <Content Include="Views\Followings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107041229329_AddAttendance.resx">
       <DependentUpon>202107041229329_AddAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107070618523_AddFollowingTable.resx">
+      <DependentUpon>202107070618523_AddFollowingTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
