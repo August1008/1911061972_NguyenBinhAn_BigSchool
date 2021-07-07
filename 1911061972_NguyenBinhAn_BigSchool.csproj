@@ -187,6 +187,7 @@
     <Compile Include="Migrations\202107070618523_AddFollowingTable.Designer.cs">
       <DependentUpon>202107070618523_AddFollowingTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CoursesListViewModel.cs" />
     <Compile Include="Models\Following.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -296,6 +297,7 @@
     <Content Include="Views\Followings\Details.cshtml" />
     <Content Include="Views\Followings\Edit.cshtml" />
     <Content Include="Views\Followings\Index.cshtml" />
+    <Content Include="Views\Courses\Attending.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

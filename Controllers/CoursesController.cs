@@ -139,5 +139,19 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+            var courses = db.attendances.Where(a => a.AttenderId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+            var viewModel = new CoursesListViewModel { UpCourses = courses, showButton = User.Identity.IsAuthenticated };
+            return View(viewModel);
+        }
     }
 }

@@ -1,10 +1,11 @@
 ﻿@model _1911061972_NguyenBinhAn_BigSchool.Models.CoursesListViewModel
+
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    
-</head>
+
+<h2>Attending</h2>
 
 <body>
 
@@ -22,22 +23,18 @@
                         @course.Lecturer.name
                         @if (Model.showButton)
                         {
-                        <button class="btn btn-default btn-sm js-toggle-following" data-user-id="@course.LecturerId">Follow</button>
+                            <button class="btn btn-default btn-sm js-toggle-following" data-user-id="@course.LecturerId">Follow</button>
                         }
                     </div>
                     <div class="category">@course.Category.name</div>
-                    @if (Model.showButton)
-                    {
-                    <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
-                    }
+                    
                 </div>
 
             </li>
         }
     </ul>
-    
+
     @section scripts{
         <script src="~/MyScripts/MyJs.js"></script>
-        }
+    }
 </body>  
-    

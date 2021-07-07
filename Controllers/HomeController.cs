@@ -19,7 +19,8 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         public ActionResult Index()
         {
             var upCourse = _dbContext.courses.Include(c => c.Lecturer).Include(c => c.Category).Where(c => c.datetime > DateTime.Now);
-            return View(upCourse);
+            var viewModel = new CoursesListViewModel { UpCourses = upCourse, showButton = User.Identity.IsAuthenticated };
+            return View(viewModel);
         }
 
         public ActionResult About()
