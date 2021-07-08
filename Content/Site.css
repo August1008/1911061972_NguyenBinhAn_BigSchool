@@ -57,7 +57,7 @@ textarea {
     margin-bottom:50px;
     margin-top:50px;
     display:inline-block;
-    width:24%;
+    width:32%;
     
 }
 .course > li .date{
@@ -104,4 +104,24 @@ textarea {
     padding-top: 10%;
     padding-bottom: 10%;
     height: 37px;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #337ab7;
+    border-radius: 0;
+    font-family: cursive;
+    font-size: 12px;
+}
+
+.course > li .behavior{
+    margin-left:70px;
+}
+
+.course > li .behavior .edit{
+    width:35px;
+    float:left;
+}
+.course > li .behavior .cancel{
+    float:left;
 }

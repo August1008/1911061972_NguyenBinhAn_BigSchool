@@ -80,12 +80,23 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.courses.Find(id);
+
+            var viewModel = new CourseViewModel
+            {
+                Id = course.Id,
+                place = course.place,
+                date = course.datetime.ToString("dd/M/yyyy"),
+                time = course.datetime.ToString("HH:mm"),
+                CategoryId = course.CategoryId,
+                categories = db.categories
+                
+            };
             if (course == null)
             {
                 return HttpNotFound();
             }
             ViewBag.CategoryId = new SelectList(db.categories, "Id", "name", course.CategoryId);
-            return View(course);
+            return View(viewModel);
         }
 
         // POST: Courses/Edit/5
@@ -93,11 +104,23 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,place,datetime,CategoryId")] Course course)
+        public ActionResult Edit(CourseViewModel course)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(course).State = EntityState.Modified;
+                var updateCourse = db.courses.Find(course.Id);
+                //var Newcourse = new Course
+                //{
+                //    Id = course.Id,
+                //    LecturerId = User.Identity.GetUserId(),
+                //    datetime = course.GetDateTime(),
+                //    CategoryId = course.CategoryId,
+                //    place = course.place
+                //};
+                // db.Entry(Newcourse).State = EntityState.Modified;
+                updateCourse.place = course.place;
+                updateCourse.datetime = course.GetDateTime();
+                updateCourse.CategoryId = course.CategoryId;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

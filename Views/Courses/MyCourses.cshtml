@@ -29,7 +29,14 @@
                     <div class="category">@course.Category.name</div>
 
                 </div>
-
+                <div class="behavior">
+                    <div class="edit">
+                        @Html.ActionLink("Edit", "Edit",new { id = course.Id })
+                    </div>
+                    <div class="cancel">
+                        <a href="#">Cancel</a>
+                    </div>
+                </div>
             </li>
         }
     </ul>
