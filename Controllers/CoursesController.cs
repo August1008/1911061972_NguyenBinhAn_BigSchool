@@ -64,7 +64,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
                 };
                 db.courses.Add(Newcourse);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyCourses","Courses");
 
             }
 
@@ -148,10 +148,20 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             var courses = db.attendances.Where(a => a.AttenderId == userId)
                 .Select(a => a.Course)
                 .Include(l => l.Lecturer)
-                .Include(l => l.Category)
-                .ToList();
+                .Include(l => l.Category);
             var viewModel = new CoursesListViewModel { UpCourses = courses, showButton = User.Identity.IsAuthenticated };
             return View(viewModel);
+        }
+
+        [Authorize]
+        public ActionResult MyCourses()
+        {
+            var userId = User.Identity.GetUserId();
+            var courses = db.courses.Where(a => a.LecturerId == userId).Include(a=>a.Category).Include(a=>a.Lecturer);
+            var viewModel = new CoursesListViewModel { UpCourses = courses, showButton = false };
+            return View(viewModel);
+            
+
         }
     }
 }

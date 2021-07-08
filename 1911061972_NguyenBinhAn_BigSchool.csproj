@@ -298,6 +298,7 @@
     <Content Include="Views\Followings\Edit.cshtml" />
     <Content Include="Views\Followings\Index.cshtml" />
     <Content Include="Views\Courses\Attending.cshtml" />
+    <Content Include="Views\Courses\MyCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
