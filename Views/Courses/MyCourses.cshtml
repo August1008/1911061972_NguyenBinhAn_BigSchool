@@ -12,7 +12,9 @@
     <ul class="course">
         @foreach (var course in Model.UpCourses)
         {
-            <li>
+            if (!course.IsCanceled)
+            {
+             <li>
                 <div class="date">
                     <div class="month">@course.datetime.ToString("MM")</div>
                     <div class="day">@course.datetime.ToString("dd")</div>
@@ -31,13 +33,14 @@
                 </div>
                 <div class="behavior">
                     <div class="edit">
-                        @Html.ActionLink("Edit", "Edit",new { id = course.Id })
+                        @Html.ActionLink("Edit", "Edit", new { id = course.Id })
                     </div>
                     <div class="cancel">
-                        <a href="#">Cancel</a>
+                        <a href="#" class="js-cancel-course" data-course-id="@course.Id">Cancel</a>
                     </div>
                 </div>
-            </li>
+             </li>
+            }
         }
     </ul>
 

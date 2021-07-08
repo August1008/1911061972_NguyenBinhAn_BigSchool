@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+
+
     $(".js-toggle-attendance").click(function (e) {
         var button = $(e.target);
         $.post("/api/attendances", { courseId: button.attr("data-course-id") })
@@ -12,6 +14,8 @@
         });
     });
 
+
+
     $(".js-toggle-following").click(function (e) {
         var button = $(e.target);
         $.post("/api/followings", { followeeId: button.attr("data-user-id") })
@@ -22,4 +26,24 @@
                 alert("Something failed!");
             })
     });
+
+
+    $(".js-cancel-course").click(function (e) {
+        e.preventDefault();
+        var link = $(e.target);
+        bootbox.confirm("Are you sure to cancel?",
+            function () {
+                $.ajax({ url: "/api/courses/" + link.attr("data-course-id"),method: "DELETE"})
+                    .done(function() {
+                        link.parents("li").fadeOut(function () {
+                            $(this).remove();
+                        });
+                    })
+                    .fail(function () {
+                        alert("Something failed!");
+                    });
+
+            });
+    });
+
 });

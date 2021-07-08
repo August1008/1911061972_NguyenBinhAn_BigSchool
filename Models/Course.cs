@@ -10,6 +10,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Models
     public class Course     
     {
         public int Id { set; get; }
+        public bool IsCanceled { set; get; }
         public ApplicationUser Lecturer { get; set; }
 
         public string LecturerId { set; get; }

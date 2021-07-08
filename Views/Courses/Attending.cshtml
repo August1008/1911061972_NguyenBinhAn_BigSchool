@@ -20,11 +20,8 @@
 
                 <div class="details">
                     <div class="lecturer">
-                        @course.Lecturer.name
-                        @if (Model.showButton)
-                        {
-                            <button class="btn btn-default btn-sm js-toggle-following" data-user-id="@course.LecturerId">Follow</button>
-                        }
+                        @course.Lecturer.name                                               
+                        <button class="btn btn-default btn-sm js-toggle-following" data-user-id="@course.LecturerId">Follow</button>                       
                     </div>
                     <div class="category">@course.Category.name</div>
                     

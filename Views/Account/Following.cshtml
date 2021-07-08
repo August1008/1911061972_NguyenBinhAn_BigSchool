@@ -1,0 +1,17 @@
+﻿@model _1911061972_NguyenBinhAn_BigSchool.Models.FollowViewModel
+@{
+    ViewBag.Title = "Following";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Following</h2>
+
+<table class="table">
+    @foreach (var item in Model.followings)
+    {
+    <tr>
+        <td>
+            @item.name
+        </td>
+    </tr>}
+</table>

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using _1911061972_NguyenBinhAn_BigSchool.Models;
+using System.Data.Entity;
 
 namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
 {
@@ -17,7 +18,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ApplicationDbContext db = new ApplicationDbContext();
         public AccountController()
         {
         }
@@ -481,5 +482,16 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             }
         }
         #endregion
+
+        [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+            var followers = db.followings.Where(a => a.FollowerId == userId)
+                .Select(a => a.Followee);
+
+            var viewModel = new FollowViewModel { followings = followers, showFol = false };
+            return View(viewModel);
+        }
     }
 }

@@ -33,6 +33,7 @@ textarea {
 .navbar-inverse {
     background-color: whitesmoke;
     border:none;
+    height:50px;
 }
 
 .navbar-brand {

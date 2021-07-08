@@ -11,6 +11,8 @@
     <ul class="course">
         @foreach (var course in Model.UpCourses)
         {
+            if (!course.IsCanceled)
+            {
             <li>
                 <div class="date">
                     <div class="month">@course.datetime.ToString("MM")</div>
@@ -33,6 +35,7 @@
                 </div>
 
             </li>
+            }
         }
     </ul>
     
