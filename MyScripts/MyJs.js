@@ -3,15 +3,28 @@
 
     $(".js-toggle-attendance").click(function (e) {
         var button = $(e.target);
-        $.post("/api/attendances", { courseId: button.attr("data-course-id") })
-            .done(function () {
-            button.removeClass("btn-default")
-                .addClass("btn-primary")
-                .text("Going");
-        })
-        .fail(function () {
-            alert("Something failed!!");
-        });
+        if (button.hasClass("btn-default")) {
+            $.post("/api/attendances", { courseId: button.attr("data-course-id") })
+                .done(function () {
+                    button.removeClass("btn-default")
+                        .addClass("btn-primary")
+                        .text("Going");
+                })
+                .fail(function () {
+                    alert("Something failed!!");
+                });
+        } else {
+            $.ajax({ url: "/api/attendances/" + button.attr("data-course-id"), method: "DELETE" })
+                .done(function () {
+                    button
+                        .removeClass("btn-info")
+                        .addClass("btn-default")
+                        .text("Going?");
+                })
+                .fail(function () {
+                    alert("Something failed!");
+                });
+        }
     });
 
 

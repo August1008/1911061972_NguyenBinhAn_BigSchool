@@ -9,5 +9,6 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Models
     {
         public IEnumerable<Course> UpCourses { set; get; }
         public bool showButton { set; get; }
+        public List<bool> showAtend { set; get; }
     }
 }

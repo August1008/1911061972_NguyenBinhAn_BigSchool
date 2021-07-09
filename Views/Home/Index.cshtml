@@ -9,34 +9,43 @@
 <body>
 
     <ul class="course">
-        @foreach (var course in Model.UpCourses)
-        {
-            if (!course.IsCanceled)
+        @{var i = 0;
+            foreach (var course in Model.UpCourses)
             {
-            <li>
-                <div class="date">
-                    <div class="month">@course.datetime.ToString("MM")</div>
-                    <div class="day">@course.datetime.ToString("dd")</div>
-                </div>
 
-                <div class="details">
-                    <div class="lecturer">
-                        @course.Lecturer.name
+                if (!course.IsCanceled)
+                {
+                <li>
+                    <div class="date">
+                        <div class="month">@course.datetime.ToString("MM")</div>
+                        <div class="day">@course.datetime.ToString("dd")</div>
+                    </div>
+
+                    <div class="details">
+                        <div class="lecturer">
+                            @course.Lecturer.name
+                            @if (Model.showButton)
+                            {
+                                <button class="btn btn-link js-toggle-following" data-user-id="@course.LecturerId">follow</button>
+                            }
+                        </div>
+                        <div class="category">@course.Category.name</div>
                         @if (Model.showButton)
                         {
-                        <button class="btn btn-link js-toggle-following" data-user-id="@course.LecturerId">follow</button>
+                            if (Model.showAtend[i])
+                            {
+                                <button data-course-id="@course.Id" class="btn btn-primary btn-sm js-toggle-attendance">Going</button>}
+                            else
+                            {
+                                <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>}
                         }
                     </div>
-                    <div class="category">@course.Category.name</div>
-                    @if (Model.showButton)
-                    {
-                    <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
-                    }
-                </div>
 
-            </li>
+                </li>
+                        i++;
+                    }
+                }
             }
-        }
     </ul>
     
     @section scripts{

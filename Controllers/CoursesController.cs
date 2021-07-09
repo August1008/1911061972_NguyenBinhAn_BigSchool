@@ -18,8 +18,13 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = db.courses.Include(c => c.Category);
-            return View(courses.ToList());
+            var userId = User.Identity.GetUserId();
+            var courses = db.attendances.Where(a => a.AttenderId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category);
+            var viewModel = new CoursesListViewModel { UpCourses = courses, showButton = User.Identity.IsAuthenticated};
+            return View(viewModel);
         }
 
         // GET: Courses/Details/5

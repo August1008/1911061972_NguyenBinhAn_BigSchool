@@ -29,5 +29,17 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             _dbContext.SaveChanges();
             return Ok();
         }
+
+        [HttpDelete]
+        public IHttpActionResult DeleteAttendance(int id)
+        {
+            var userid = User.Identity.GetUserId();
+            var attendance = _dbContext.attendances.SingleOrDefault(a => a.CourseId == id && a.AttenderId == userid);
+            if (attendance == null)
+                return NotFound();
+            _dbContext.attendances.Remove(attendance);
+            _dbContext.SaveChanges();
+            return Ok();
+        }
     }
 }
