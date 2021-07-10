@@ -17,7 +17,7 @@
             $.ajax({ url: "/api/attendances/" + button.attr("data-course-id"), method: "DELETE" })
                 .done(function () {
                     button
-                        .removeClass("btn-info")
+                        .removeClass("btn-primary")
                         .addClass("btn-default")
                         .text("Going?");
                 })
@@ -31,13 +31,24 @@
 
     $(".js-toggle-following").click(function (e) {
         var button = $(e.target);
-        $.post("/api/followings", { followeeId: button.attr("data-user-id") })
-            .done(function () {
-                button.text("Following");
-            })
-            .fail(function () {
-                alert("Something failed!");
-            })
+        if (button.text() == "follow") {
+            $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+                .done(function () {
+                    button.text("following");
+                })
+                .fail(function () {
+                    alert("Something failed!");
+                })
+        } else {
+            $.ajax({ url: "/api/followings/" + button.attr("data-user-id"), method: "DELETE" })
+                .done(function () {
+                    button
+                        .text("follow");
+                })
+                .fail(function () {
+                    alert("Something failed!");
+                });
+        }
     });
 
 

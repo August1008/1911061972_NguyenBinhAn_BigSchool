@@ -35,6 +35,17 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             return Ok();
         }
 
+        [HttpDelete]
+        public IHttpActionResult DeleteFollowing(string id)
+        {
+            var userId = User.Identity.GetUserId();
+            var following = db.followings.SingleOrDefault(a => a.FollowerId == userId && a.FolloweeId == id);
+            if (following == null)
+                return NotFound();
+            db.followings.Remove(following);
+            db.SaveChanges();
+            return Ok();
+        }
        
     }
 }

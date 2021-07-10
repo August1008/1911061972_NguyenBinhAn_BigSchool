@@ -26,7 +26,13 @@
                             @course.Lecturer.name
                             @if (Model.showButton)
                             {
-                                <button class="btn btn-link js-toggle-following" data-user-id="@course.LecturerId">follow</button>
+                                if (Model.showFollow[i])
+                                {
+                                    <button class="btn btn-link js-toggle-following" data-user-id="@course.LecturerId">following</button>}
+                                else
+                                {
+                                    <button class="btn btn-link js-toggle-following" data-user-id="@course.LecturerId">follow</button>
+                                }
                             }
                         </div>
                         <div class="category">@course.Category.name</div>
