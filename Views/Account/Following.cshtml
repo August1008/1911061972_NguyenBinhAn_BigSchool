@@ -9,12 +9,17 @@
 <table class="table">
     @foreach (var item in Model.followings)
     {
-    <tr>
-        <td>
-            @item.name
-        </td>
-        <td>
-            <button class="btn btn-link js-toggle-following">following</button>
-        </td>
-    </tr>}
+        <tr>
+            <td>
+                @item.name
+            </td>
+            <td>
+                <button class="btn btn-link js-toggle-following">following</button>
+            </td>
+        </tr>
+}
 </table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

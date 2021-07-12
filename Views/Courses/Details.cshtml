@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Category.name)
+            Tên môn học
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.place)
+            Địa điểm
         </dt>
 
         <dd>
@@ -28,16 +28,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.datetime)
+            Ngày bắt đầu
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.datetime)
+             @Model.datetime.ToString("dd/M/yyyy")
+        </dd>
+
+        <dt>
+            Giờ học
+        </dt>
+
+        <dd>
+            @Model.datetime.ToString("HH:mm")
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

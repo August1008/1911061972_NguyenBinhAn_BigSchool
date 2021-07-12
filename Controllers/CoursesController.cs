@@ -35,6 +35,9 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.courses.Find(id);
+            course.Category = db.categories.Find(course.CategoryId);
+
+            
             if (course == null)
             {
                 return HttpNotFound();
