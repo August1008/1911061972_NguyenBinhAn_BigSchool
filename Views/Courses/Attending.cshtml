@@ -10,8 +10,9 @@
 <body>
 
     <ul class="course">
-        @foreach (var course in Model.UpCourses)
-        {
+        @{
+            foreach (var course in Model.UpCourses)
+            {
             <li>
                 <div class="date">
                     <div class="month">@course.datetime.ToString("MM")</div>
@@ -21,14 +22,18 @@
                 <div class="details">
                     <div class="lecturer">
                         @course.Lecturer.name
-                        <button class="btn btn-default btn-sm js-toggle-following" data-user-id="@course.LecturerId">Follow</button>
+
                     </div>
                     <div class="category">@course.Category.name</div>
-
+                    
+                    <button data-course-id="@course.Id" class="btn btn-primary btn-sm js-toggle-attendance" style="margin-right:15px;">Going</button>
+                    
                 </div>
 
             </li>
-        }
+                
+            }
+            }
     </ul>
 
     @section scripts{

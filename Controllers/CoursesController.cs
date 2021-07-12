@@ -180,7 +180,9 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
                 .Select(a => a.Course)
                 .Include(l => l.Lecturer)
                 .Include(l => l.Category);
-            var viewModel = new CoursesListViewModel { UpCourses = courses, showButton = User.Identity.IsAuthenticated };
+            var viewModel = new CoursesListViewModel { UpCourses = courses, };
+            
+
             return View(viewModel);
         }
 

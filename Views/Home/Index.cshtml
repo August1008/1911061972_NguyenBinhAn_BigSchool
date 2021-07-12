@@ -44,8 +44,9 @@
                             else
                             {
                                 <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance" style="margin-right:15px;">Going?</button>}
-                            @Html.RouteLink("details",new { Controller = "Courses", Action = "Details", id=course.Id })
+                            
                         }
+                        @Html.RouteLink("details", new { Controller = "Courses", Action = "Details", id = course.Id })
                     </div>
 
                 </li>
