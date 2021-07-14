@@ -21,7 +21,8 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         {
             var userId = User.Identity.GetUserId();
             
-            var upCourse = _dbContext.courses.Include(c => c.Lecturer).Include(c => c.Category).Where(c => c.datetime > DateTime.Now && (c.Category.name.Contains(searching)||searching==null));  // lay ra danh sach khoa hoc
+            var upCourse = _dbContext.courses.Include(c => c.Lecturer).Include(c => c.Category)
+                .Where(c => c.datetime > DateTime.Now && (c.Category.name.Contains(searching)||searching==null));  // lay ra danh sach khoa hoc
                    
             var viewModel = new CoursesListViewModel { UpCourses = upCourse, showButton = User.Identity.IsAuthenticated };
 
@@ -52,7 +53,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
-        }//cham bai
+        }//cham bai | cham xong
 
         public ActionResult Contact()
         {
