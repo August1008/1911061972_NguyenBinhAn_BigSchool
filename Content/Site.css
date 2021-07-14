@@ -126,3 +126,11 @@ textarea {
 .course > li .behavior .cancel{
     float:left;
 }
+
+
+.my-search-bar {
+    width: 25%;
+    float: left;
+    margin-left: 50px;
+    margin-top: 12px;
+}

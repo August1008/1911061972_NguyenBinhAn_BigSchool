@@ -17,11 +17,12 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             _dbContext = new ApplicationDbContext();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string searching)
         {
             var userId = User.Identity.GetUserId();
-            var upCourse = _dbContext.courses.Include(c => c.Lecturer).Include(c => c.Category).Where(c => c.datetime > DateTime.Now);  // lay ra danh sach khoa hoc
-                       
+            
+            var upCourse = _dbContext.courses.Include(c => c.Lecturer).Include(c => c.Category).Where(c => c.datetime > DateTime.Now && (c.Category.name.Contains(searching)||searching==null));  // lay ra danh sach khoa hoc
+                   
             var viewModel = new CoursesListViewModel { UpCourses = upCourse, showButton = User.Identity.IsAuthenticated };
 
             var Attendings = _dbContext.attendances.Where(a => a.AttenderId == userId).ToList();  // lay ra danh sach khoa hoc user dang tham gia
@@ -43,9 +44,6 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
                 else
                     viewModel.showFollow.Add(false);
             }
-
-            
-            
             return View(viewModel);
         }
 

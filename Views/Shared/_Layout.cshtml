@@ -29,6 +29,10 @@
                     <li>@Html.ActionLink("Add Course", "Create", "Courses")</li>
                     <li>@Html.ActionLink("Category", "Index", "Categories")</li>
                 </ul>
+                @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "my-search-bar" }))
+                {
+                <input type="submit" value="Search" />@Html.TextBox("searching")
+                }
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
