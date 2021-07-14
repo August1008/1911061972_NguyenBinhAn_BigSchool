@@ -36,6 +36,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         }
 
         // GET: Categories/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();

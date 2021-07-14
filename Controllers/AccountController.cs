@@ -235,6 +235,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
+            
             return code == null ? View("Error") : View();
         }
 
@@ -255,6 +256,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
                 // Don't reveal that the user does not exist
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
+            model.Code = UserManager.GeneratePasswordResetTokenAsync(user.Id).Result;
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {

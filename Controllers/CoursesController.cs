@@ -46,6 +46,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.categories, "Id", "name");
