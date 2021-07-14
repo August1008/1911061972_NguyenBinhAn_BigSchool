@@ -52,7 +52,7 @@ namespace _1911061972_NguyenBinhAn_BigSchool.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
-        }
+        }//cham bai
 
         public ActionResult Contact()
         {
